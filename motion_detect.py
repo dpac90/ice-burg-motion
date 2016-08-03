@@ -116,7 +116,7 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 			# check to see if the number of frames with consistent motion is
 			# high enough
 			if motionCounter >= conf["min_motion_frames"]:
-				# check to see if dropbox sohuld be used
+				# check to see if dropbox should be used
 				if conf["use_dropbox"]:
 					# write the image to temporary file
 					t = TempImage()
@@ -142,6 +142,7 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 	if conf["show_video"]:
 		# display the feed
 		cv2.imshow("Ice-Burg Proximity Detection", frame)
+		cv2.imshow("Frame Delta", frameDelta)
 		key = cv2.waitKey(1) & 0xFF
 
 		# if the `q` key is pressed, break from the lop
